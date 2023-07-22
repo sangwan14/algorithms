@@ -11,7 +11,7 @@ MAX_N = 10e5
 depth = defaultdict(int) # [0 for _ in range(MAX_N+1)]
 up = defaultdict(dict) # [[0 for _ in range(LOG)] for _ in range(MAX_N)]]
 
-def dfs(self, node, parent):
+def dfs(node, parent):
     if not node:
         return
 
@@ -28,7 +28,7 @@ def dfs(self, node, parent):
     if node.right:
         dfs(node.right, node)
 
-def LCA(self, p, q):
+def LCA(p, q):
     if depth[p] < depth[q]:
         p, q = q, p
 
@@ -53,6 +53,6 @@ def LCA(self, p, q):
 
 
 # this preprocessing is only useful if you have a tree and you have to make multiple queries on it
-def preprocess(self, root):
+def preprocess(root):
     # fill the up array which stores 2^jth (j in [0, LOG-1]) ancestor of every node 
     dfs(root, root) # set parent as root itself to avoid indexing problems
